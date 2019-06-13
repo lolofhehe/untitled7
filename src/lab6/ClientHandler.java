@@ -36,7 +36,7 @@ public class ClientHandler {
 
         private boolean isStopped = false;
 
-        public void setStopped() {
+        private void setStopped() {
             isStopped = true;
         }
 
@@ -57,7 +57,7 @@ public class ClientHandler {
         }
     }
 
-    public void close() {
+    protected void close() {
         try {
             socket.close();
         } catch (IOException ex) {
@@ -65,13 +65,13 @@ public class ClientHandler {
         }
     }
 
-    public Thread readThread() {
+    protected Thread readThread() {
         ClientThread cli = new ClientThread();
         cli.start();
         return cli;
     }
 
-    public void sendCommand(String command) {
+    protected void sendCommand(String command) {
         try {
             wb.clear();
             wb.put(command.getBytes());
@@ -82,7 +82,7 @@ public class ClientHandler {
         }
     }
 
-    public void stopThread(Thread cli) {
+    protected void stopThread(Thread cli) {
         ((ClientThread) cli).setStopped();
         close();
     }
