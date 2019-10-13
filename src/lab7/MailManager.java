@@ -11,7 +11,7 @@ import java.nio.file.Paths;
 import java.util.Properties;
 
 class MailManager {
-    private final static String PROPERTIES_PATH = "mail.properties";
+    private final static String PROPERTIES_PATH = "/home/s265092/lab7/mail.properties";
     private Session mailSession;
     private final String sender;
 

@@ -39,7 +39,6 @@ public class MalishkaHelper {
 
     public Malishka convertCommandtoMalishka(String jsonCom){
         jsonCom.replace("\"","\\\"");
-        //add {"name": "Alfa", "distributedHarpType": "LARGE", "isPlaying": "true"}             FucDe3FynZoCoFeTi7Se
         Malishka mal = gson.fromJson(jsonCom, Malishka.class);
         mal.setDistributedHarp(new Harp());
         mal.distributedHarp.setType(HarpType.matchByName(mal.getDistributedHarpType()));
@@ -51,7 +50,7 @@ public class MalishkaHelper {
      */
     public void show(Socket in, int id){
         try (DBManager manager = new DBManager()) {
-            ResultSet res = manager.getQuery("SELECT * FROM malishki WHERE user_id=? ORDER BY name;", id);
+            ResultSet res = manager.getQuery("SELECT * FROM malishki ORDER BY name;");
             ServerWriter.write(in,"name," + "\t"+ "height," + "\t" + "creation_time," + "\t" + "harp," + "\t" + "user_id" + "\n" );
             while (res.next()) {
                 String name = res.getString("name");

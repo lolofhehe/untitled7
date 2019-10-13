@@ -9,7 +9,7 @@ import java.sql.*;
 import java.util.Properties;
 
 public class DBManager implements AutoCloseable {
-    private final static String PROPERTIES_PATH = "database.properties";
+    private final static String PROPERTIES_PATH = "/home/s265092/lab7/database.properties";
     private Connection connection;
 
     public DBManager() {
