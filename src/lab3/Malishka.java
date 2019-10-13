@@ -2,29 +2,26 @@ package lab3;
 
 import java.io.Serializable;
 import java.nio.charset.Charset;
-import java.util.Date;
+import java.time.ZonedDateTime;
 import java.util.Random;
+import java.time.format.DateTimeFormatter;
+
 
 public class Malishka extends Human implements Musical, Critical, Comparable<Malishka>, Serializable {
     Malishka(){
         super.SetStatsRandom();
         acquireName();
-        height = (int) Math.random() * 1000;
-        birthday = new Date();
-        coordinates = new double[2];
-        for (double c: coordinates){
-            c = Math.random() * 100;
-        }
+        height = (int) (Math.random() * 1000);
+        birthday = ZonedDateTime.now();
     }
 
-    private double[] coordinates;
-    private Date birthday;
+    private ZonedDateTime birthday;
     private int height;
     transient public Harp distributedHarp;
     private String distributedHarpType;
     private String name;
     public boolean isPlaying;
-    private String isPlayingKey;
+
 
     public void setDistributedHarp(Harp distributedHarp) {
         this.distributedHarp = distributedHarp;
@@ -48,7 +45,9 @@ public class Malishka extends Human implements Musical, Critical, Comparable<Mal
         this.name = name;
     }
 
-
+    public int getHeight() {
+        return height;
+    }
 
     public String getDistributedHarpType() {
         return distributedHarpType;
@@ -58,6 +57,9 @@ public class Malishka extends Human implements Musical, Critical, Comparable<Mal
         return Boolean.toString(isPlaying);
     }
 
+    public String getBirthday(){
+        return birthday.format(DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm:ss") );
+    }
 
     private int hashElem = Integer.parseInt(String.valueOf(Math.random()).substring(3,6));
 

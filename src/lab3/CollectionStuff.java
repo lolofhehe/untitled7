@@ -1,4 +1,4 @@
-package lab3;
+/*package lab3;
 
 import com.google.gson.JsonSyntaxException;
 
@@ -20,7 +20,7 @@ public class CollectionStuff {
                 try{
                     switch (command[0]) {
                         case "add":
-                                malHelp.add(command[1]);
+                                malHelp.add(command[1], 1);
 
                             break;
                         case "show":
@@ -69,4 +69,4 @@ public class CollectionStuff {
         }
     }
 }
-
+*/

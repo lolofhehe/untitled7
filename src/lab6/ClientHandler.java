@@ -6,7 +6,6 @@ import java.io.*;
 import java.nio.*;
 import java.nio.channels.*;
 import java.net.*;
-import java.util.Scanner;
 
 
 public class ClientHandler {
@@ -14,8 +13,6 @@ public class ClientHandler {
     private InetSocketAddress inet;
     private ByteBuffer wb;
     private ByteBuffer rb;
-    private Scanner scan = new Scanner(System.in);
-    private byte[] bytes = new byte[128];
 
     public ClientHandler(String ip, int port) {
         try {
